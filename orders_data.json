@@ -5,7 +5,7 @@
         "quantity": "1",
         "symbol": "1INCH/USDT",
         "created": "2025-03-27T07:27:11.153Z",
-        "status": "new"
+        "status": "filled"
     },
     {
         "orderID": "1INCH-USDT-10667-1743060432457",
@@ -13,7 +13,7 @@
         "quantity": "1",
         "symbol": "1INCH/USDT",
         "created": "2025-03-27T07:27:12.458Z",
-        "status": "new"
+        "status": "filled"
     },
     {
         "orderID": "1INCH-USDT-10668-1743060433870",
@@ -21,6 +21,14 @@
         "quantity": "1",
         "symbol": "1INCH/USDT",
         "created": "2025-03-27T07:27:13.870Z",
-        "status": "new"
+        "status": "filled"
+    },
+    {
+        "orderID": "1INCH-USDT-1304060-1745471250011",
+        "price": "0.2007",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "status": "new",
+        "discount": "2%"
     }
 ]
