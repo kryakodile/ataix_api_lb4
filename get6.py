@@ -2,7 +2,7 @@ import json
 import requests
 import time
 
-API_KEY = ""
+API_KEY = "c47lccEtuP38vO8UBy73KNzK9fjwEGgMCRjCzHEiUUAWSydYCrGJzgQCXzulzUEHff6YjJC2u1HIwQuveXiZbT"
 API_BASE = "https://api.ataix.kz/api/orders"
 ORDERS_FILE = "orders_data.json"
 
@@ -24,7 +24,7 @@ def get_order_status(order_id):
     if response.status_code == 200:
         return response.json().get("result", {}).get("status")
     else:
-        print(f"Ошибка получения статуса ордера {order_id}: {response.status_code}")
+        print(f" Ошибка получения статуса ордера {order_id}: {response.status_code}")
         return None
 
 def cancel_order(order_id):
@@ -37,10 +37,10 @@ def cancel_order(order_id):
     return response.status_code == 200
 
 def create_new_order(symbol, price):
-    new_price = round(float(price) * 1.01, 4)
+    new_price = round(float(price) * 1.02, 4)
     data = {
         "symbol": symbol,
-        "side": "buy",
+        "side": "sell",
         "type": "limit",
         "quantity": 1,
         "price": str(new_price)
@@ -62,33 +62,31 @@ def process_orders():
     new_orders = []
 
     for order in orders:
-        if order["status"].lower() != "new":
+        if order["status"].lower() !="filled":
             continue
 
         order_id = order["orderID"]
-        print(f"🔍 Проверка ордера {order_id}...")
+        print(f"Проверка ордера {order_id}...")
 
         status = get_order_status(order_id)
 
         if status == "filled":
-            print(f"Ордер {order_id} выполнен.")
+            print(f"Ордер {order_id} выполнен. Продаю за * 1,02")
             order["status"] = "filled"
-        elif status:
-            print(f"Ордер {order_id} не выполнен. Отмена...")
-            if cancel_order(order_id):
-                order["status"] = "cancelled"
-                result = create_new_order(order["symbol"], order["price"])
-                if result:
-                    print(f"Создан новый ордер: {result['orderID']} по {result['price']}")
-                    new_orders.append({
-                        "orderID": result["orderID"],
-                        "price": result["price"],
-                        "quantity": result["quantity"],
-                        "symbol": result["symbol"],
-                        "created": result["created"],
-                        "status": result["status"]
-                    })
+            result = create_new_order(order["symbol"], order["price"])
+            if result:
+                print(f"Создан новый ордер: {result['orderID']} по {result['price']}")
+                new_orders.append({
+                    "orderID": result["orderID"],
+                    "price": result["price"],
+                    "quantity": result["quantity"],
+                    "symbol": result["symbol"],
+                    "status": result["status"],
+                    "discount": "2%"
+                })
         time.sleep(1)
+
+
 
     orders.extend(new_orders)
     save_orders(orders)
