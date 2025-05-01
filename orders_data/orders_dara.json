@@ -1,0 +1,44 @@
+[
+    {
+        "orderID": "1INCH-USDT-10666-1743060431152",
+        "price": "0.2096",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "created": "2025-03-27T07:27:11.153Z",
+        "status": "filled"
+    },
+    {
+        "orderID": "1INCH-USDT-10667-1743060432457",
+        "price": "0.2032",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "created": "2025-03-27T07:27:12.458Z",
+        "status": "filled"
+    },
+    {
+        "orderID": "1INCH-USDT-10668-1743060433870",
+        "price": "0.1968",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "created": "2025-03-27T07:27:13.870Z",
+        "status": "filled"
+    },
+    {
+        "orderID": "1INCH-USDT-1304060-1745471250011",
+        "price": "0.2007",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "status": "cancelled",
+        "discount": "2%"
+    },
+    {
+        "orderID": "1INCH-USDT-1585869-1745576623598",
+        "price": "0.1937",
+        "quantity": "1",
+        "symbol": "1INCH/USDT",
+        "created": "2025-04-25T10:23:43.599Z",
+        "status": "filled",
+        "cumQuoteQuantity": "0.1937",
+        "cumCommission": "0.000388"
+    }
+]
